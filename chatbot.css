@@ -1,0 +1,367 @@
+/* ByteBot Chatbot Styles */
+
+.bytechat-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Toggle Button */
+.bytechat-toggle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #64ffda 0%, #00b894 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.bytechat-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(100, 255, 218, 0.5);
+}
+
+.bytechat-toggle.active {
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    border: 2px solid #64ffda;
+}
+
+.bytechat-toggle i {
+    font-size: 1.6rem;
+    color: #0a192f;
+    transition: all 0.3s ease;
+}
+
+.bytechat-toggle.active i {
+    color: #64ffda;
+}
+
+.bytechat-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Chat Window */
+.bytechat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    height: 520px;
+    max-height: calc(100vh - 150px);
+    background: #0a192f;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.bytechat-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Header */
+.bytechat-header {
+    background: linear-gradient(135deg, #112240 0%, #0d1b2a 100%);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.bytechat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bytechat-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #64ffda 0%, #00b894 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bytechat-avatar i {
+    font-size: 1.3rem;
+    color: #0a192f;
+}
+
+.bytechat-header-text h4 {
+    color: #e6f1ff;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.bytechat-status {
+    font-size: 0.8rem;
+    color: #8892b0;
+}
+
+.bytechat-close {
+    background: transparent;
+    border: none;
+    color: #8892b0;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.3s;
+}
+
+.bytechat-close:hover {
+    color: #64ffda;
+}
+
+/* Messages Area */
+.bytechat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: linear-gradient(180deg, #0a192f 0%, #0d1b2a 100%);
+}
+
+.bytechat-message {
+    max-width: 85%;
+    animation: messageIn 0.3s ease-out;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bytechat-message.bot {
+    align-self: flex-start;
+}
+
+.bytechat-message.user {
+    align-self: flex-end;
+}
+
+.bytechat-message .message-content {
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.bytechat-message.bot .message-content {
+    background: #112240;
+    color: #ccd6f6;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-bottom-left-radius: 4px;
+}
+
+.bytechat-message.user .message-content {
+    background: linear-gradient(135deg, #64ffda 0%, #00b894 100%);
+    color: #0a192f;
+    border-bottom-right-radius: 4px;
+}
+
+.bytechat-message .message-time {
+    font-size: 0.7rem;
+    color: #8892b0;
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+.bytechat-message.user .message-time {
+    text-align: right;
+}
+
+/* Typing Indicator */
+.typing-indicator .message-content {
+    display: flex;
+    gap: 5px;
+    padding: 18px 22px;
+}
+
+.typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background: #64ffda;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+/* Input Area */
+.bytechat-input-area {
+    display: flex;
+    padding: 15px 20px;
+    gap: 12px;
+    background: #112240;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.bytechat-input-area input {
+    flex: 1;
+    background: rgba(10, 25, 47, 0.8);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    padding: 14px 18px;
+    border-radius: 25px;
+    color: #e6f1ff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.bytechat-input-area input:focus {
+    border-color: #64ffda;
+}
+
+.bytechat-input-area input::placeholder {
+    color: #8892b0;
+}
+
+.bytechat-input-area button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #64ffda 0%, #00b894 100%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bytechat-input-area button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+.bytechat-input-area button i {
+    color: #0a192f;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.bytechat-footer {
+    padding: 10px;
+    text-align: center;
+    background: #0d1b2a;
+    border-top: 1px solid rgba(100, 255, 218, 0.05);
+}
+
+.bytechat-footer span {
+    font-size: 0.7rem;
+    color: #4a5568;
+}
+
+/* Scrollbar */
+.bytechat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bytechat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bytechat-messages::-webkit-scrollbar-thumb {
+    background: rgba(100, 255, 218, 0.2);
+    border-radius: 3px;
+}
+
+.bytechat-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 255, 218, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .bytechat-container {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .bytechat-toggle {
+        width: 55px;
+        height: 55px;
+    }
+
+    .bytechat-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 120px);
+        bottom: 70px;
+        right: 0;
+    }
+}
