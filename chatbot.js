@@ -19,6 +19,7 @@ const CHATBOT_CONFIG = {
             "Desarrollo de Aplicaciones Web (JavaScript, TypeScript, React)",
             "Chatbots Personalizados para cualquier propósito (GPT-4, Gemini, Claude)",
             "Integración de Inteligencia Artificial (Whisper, RAG, Vision AI)",
+            "Creación de Contenido Multimedia (Videos, Afiches, Promociones)",
             "Consultoría Digital y Capacitación"
         ],
         diferenciador: "Soluciones de Costo Cero en infraestructura usando tecnologías cloud gratuitas",
@@ -53,7 +54,7 @@ const KNOWLEDGE_BASE = [
     },
     {
         keywords: ["servicios", "qué hace", "que hace", "ofrece", "ayudar"],
-        response: "Juan Pablo ofrece 5 servicios principales:\n\n1️⃣ **Automatización de Procesos** - Elimina tareas repetitivas\n2️⃣ **Desarrollo de Aplicaciones Web** - Dashboards y sistemas a medida\n3️⃣ **Chatbots Personalizados** - Para cualquier propósito empresarial\n4️⃣ **Integración de IA** - GPT-4, Gemini, Whisper\n5️⃣ **Consultoría y Capacitación** - Transferencia de conocimiento\n\n¿Te interesa alguno en particular?"
+        response: "Juan Pablo ofrece 6 servicios principales:\n\n1️⃣ **Automatización de Procesos** - Elimina tareas repetitivas\n2️⃣ **Desarrollo de Aplicaciones Web** - Dashboards y sistemas a medida\n3️⃣ **Chatbots Personalizados** - Para cualquier propósito empresarial\n4️⃣ **Integración de IA** - GPT-4, Gemini, Whisper\n5️⃣ **Contenido Multimedia** - Videos, afiches, promociones\n6️⃣ **Consultoría y Capacitación** - Transferencia de conocimiento\n\n¿Te interesa alguno en particular?"
     },
     {
         keywords: ["precio", "costo", "cuánto", "cuanto", "tarifa", "cobrar", "presupuesto"],
@@ -94,6 +95,10 @@ const KNOWLEDGE_BASE = [
     {
         keywords: ["gracias", "genial", "excelente", "perfecto", "ok"],
         response: "¡De nada! 😊 Si tienes más preguntas, aquí estaré. Y si quieres hablar directamente con Juan Pablo:\n\n📧 jp.ramirez.yanez@gmail.com\n\n¡Éxito con tu proyecto! 🚀"
+    },
+    {
+        keywords: ["video", "videos", "afiche", "flyer", "promoción", "promocion", "multimedia", "contenido", "diseño", "canva"],
+        response: "¡Juan Pablo también crea **contenido multimedia** profesional! 🎬\n\n• 📹 Videos promocionales y corporativos\n• 🎨 Afiches y flyers digitales\n• 📊 Presentaciones ejecutivas impactantes\n• 📱 Contenido para redes sociales\n• ✨ Animaciones y motion graphics\n\n**Herramientas:** Canva Pro, CapCut, DaVinci Resolve, AI Image Gen\n\n¿Necesitas material visual para tu proyecto?"
     }
 ];
 
