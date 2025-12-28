@@ -1,109 +1,81 @@
-// Bytecode AI Assistant - Chatbot experto en Juan Pablo Ramírez
-// Este chatbot demuestra la capacidad de crear asistentes conversacionales
+// Bytecode AI Assistant - Chatbot con Gemini AI
+// Asistente virtual experto en Juan Pablo Ramírez y sus servicios
+
+const GEMINI_API_KEY = 'AIzaSyDG3_nvrb--EUz4jHIxMrJeOW9gv9awJ_4';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 const CHATBOT_CONFIG = {
     name: "ByteBot",
-    greeting: "¡Hola! 👋 Soy ByteBot, el asistente virtual de Juan Pablo. ¿En qué puedo ayudarte hoy?",
+    greeting: "¡Hola! 👋 Soy ByteBot, el asistente virtual de Juan Pablo. Estoy potenciado por Gemini AI para responder cualquier pregunta sobre sus servicios. ¿En qué puedo ayudarte?",
     placeholder: "Escribe tu pregunta...",
-    // Información del experto para respuestas
-    expertInfo: {
-        nombre: "Juan Pablo Ramírez Yáñez",
-        rol: "Product Manager & Desarrollador de Soluciones",
-        experiencia: "14+ años en gestión educativa y tecnología",
-        especialidad: "Educación, pero aplicable a cualquier industria",
-        email: "jp.ramirez.yanez@gmail.com",
-        ubicacion: "Chile, Región de la Araucanía",
-        github: "https://github.com/Juanpi2024",
-        servicios: [
-            "Automatización de Procesos (Google Apps Script, Zapier, Make)",
-            "Desarrollo de Aplicaciones Web (JavaScript, TypeScript, React)",
-            "Chatbots Personalizados para cualquier propósito (GPT-4, Gemini, Claude)",
-            "Integración de Inteligencia Artificial (Whisper, RAG, Vision AI)",
-            "Creación de Contenido Multimedia (Videos, Afiches, Promociones)",
-            "Consultoría Digital y Capacitación"
-        ],
-        diferenciador: "Soluciones de Costo Cero en infraestructura usando tecnologías cloud gratuitas",
-        proyectos: [
-            "Calendario Institucional Anual con sincronización cloud",
-            "Sistema de Estadísticas y Actas automatizado",
-            "Gestión de Riesgos Institucionales (OAT)",
-            "Control de Ingresos y Egresos con IA",
-            "Análisis FODA Dinámico con base de datos",
-            "Conversor PDF a Web Normativo",
-            "Seguimiento Académico en Tiempo Real",
-            "Gestión Inteligente de Oficios con IA"
-        ],
-        tecnologias: ["JavaScript", "TypeScript", "React", "Next.js", "Google Apps Script", "GPT-4", "Gemini", "Claude", "Whisper", "Firebase", "Google Cloud"],
-        iaDesde: "2021"
-    }
 };
 
-// Base de conocimiento para respuestas
-const KNOWLEDGE_BASE = [
-    {
-        keywords: ["hola", "buenos días", "buenas tardes", "hey", "saludos"],
-        response: "¡Hola! 👋 Soy ByteBot. Juan Pablo puede ayudarte con automatización, desarrollo web, chatbots personalizados e integración de IA. ¿Qué te gustaría saber?"
-    },
-    {
-        keywords: ["quién", "quien", "juan pablo", "sobre ti", "sobre él", "perfil"],
-        response: "Juan Pablo Ramírez Yáñez es un Product Manager con **14+ años de experiencia** en gestión educativa. Desde 2021 integra IA en sus soluciones. Es Técnico en Administración y Contabilidad, especializado en crear soluciones de **Costo Cero** que optimizan procesos. 🚀"
-    },
-    {
-        keywords: ["chatbot", "chat bot", "asistente", "bot", "conversacional"],
-        response: "¡Excelente pregunta! Juan Pablo desarrolla **chatbots personalizados para cualquier propósito**:\n\n• 🤖 Atención al cliente 24/7\n• 💼 Asistentes de ventas con IA\n• 📚 Tutores educativos virtuales\n• 🔧 Soporte técnico automatizado\n• 💬 Integración con WhatsApp, Web, Telegram\n\nDe hecho, ¡yo soy un ejemplo de su trabajo! 😊"
-    },
-    {
-        keywords: ["servicios", "qué hace", "que hace", "ofrece", "ayudar"],
-        response: "Juan Pablo ofrece 6 servicios principales:\n\n1️⃣ **Automatización de Procesos** - Elimina tareas repetitivas\n2️⃣ **Desarrollo de Aplicaciones Web** - Dashboards y sistemas a medida\n3️⃣ **Chatbots Personalizados** - Para cualquier propósito empresarial\n4️⃣ **Integración de IA** - GPT-4, Gemini, Whisper\n5️⃣ **Contenido Multimedia** - Videos, afiches, promociones\n6️⃣ **Consultoría y Capacitación** - Transferencia de conocimiento\n\n¿Te interesa alguno en particular?"
-    },
-    {
-        keywords: ["precio", "costo", "cuánto", "cuanto", "tarifa", "cobrar", "presupuesto"],
-        response: "Los precios varían según el proyecto. Lo especial de Juan Pablo es que usa **tecnologías de Costo Cero** en infraestructura (no pagas servidores ni licencias). Solo inviertes en su tiempo de desarrollo.\n\n📧 Para una cotización personalizada: **jp.ramirez.yanez@gmail.com**"
-    },
-    {
-        keywords: ["contacto", "email", "correo", "llamar", "hablar", "reunión"],
-        response: "¡Conecta con Juan Pablo!\n\n📧 Email: **jp.ramirez.yanez@gmail.com**\n📍 Ubicación: Chile, Región de la Araucanía\n💻 GitHub: github.com/Juanpi2024\n\nResponde todos los mensajes en máximo 24 horas. También puedes usar el formulario en la página de Contacto. 📝"
-    },
-    {
-        keywords: ["proyecto", "ejemplos", "portafolio", "portfolio", "trabajos"],
-        response: "Algunos proyectos destacados:\n\n📅 Calendario Institucional con sincronización cloud\n📊 Sistema de Estadísticas automatizado\n⚠️ Gestión de Riesgos (OAT)\n💰 Control Financiero con IA\n📄 Conversor PDF a Web Normativo\n🤖 Gestión de Oficios con IA\n\nTodos disponibles en GitHub: github.com/Juanpi2024"
-    },
-    {
-        keywords: ["tecnología", "tecnologias", "herramientas", "stack", "lenguajes"],
-        response: "Stack tecnológico de Juan Pablo:\n\n💻 **Frontend:** JavaScript, TypeScript, React, Next.js\n☁️ **Cloud:** Google Apps Script, Firebase, Google Cloud\n🤖 **IA:** GPT-4, Gemini, Claude, Whisper, NotebookLM\n🔧 **Tools:** Git, Figma, Looker Studio\n\n¡Todo orientado a soluciones de Costo Cero!"
-    },
-    {
-        keywords: ["educación", "educacion", "colegio", "escuela", "institución"],
-        response: "Juan Pablo tiene **14+ años** de experiencia en el sector educativo chileno. Ha desarrollado:\n\n• Sistemas de seguimiento estudiantil\n• Automatización de actas y certificados\n• Calendarios institucionales\n• Gestión de asistencia y atrasos\n• Evaluadores de velocidad lectora con IA\n\nPero sus metodologías aplican a **cualquier industria**. 🎓"
-    },
-    {
-        keywords: ["ia", "inteligencia artificial", "gpt", "gemini", "claude", "llm"],
-        response: "Juan Pablo trabaja con IA desde **2021**, antes del boom de ChatGPT. Domina:\n\n🧠 **GPT-4/ChatGPT** - Razonamiento complejo\n🔮 **Google Gemini** - Integración con Google Workspace\n💬 **Claude** - Análisis de documentos largos\n🎤 **Whisper** - Transcripción de audio\n📚 **NotebookLM** - RAG y síntesis\n\n¡Puede integrar cualquiera en tu negocio!"
-    },
-    {
-        keywords: ["tiempo", "demora", "plazo", "rapidez", "cuánto tarda"],
-        response: "Los tiempos dependen del proyecto:\n\n⚡ **Automatizaciones simples:** 1-2 semanas\n🌐 **Aplicaciones web:** 4-8 semanas\n🤖 **Chatbots:** 2-4 semanas\n📊 **Dashboards:** 2-3 semanas\n\nJuan Pablo usa metodologías ágiles con entregas incrementales. 🚀"
-    },
-    {
-        keywords: ["gratis", "gratuito", "sin costo", "cero"],
-        response: "¡'Costo Cero' es el diferenciador de Juan Pablo! 💡\n\nSignifica que usa herramientas gratuitas (Google Workspace, Firebase, etc.) para que **no pagues licencias ni hosting**. Solo inviertes en el desarrollo.\n\nEsto hace sus soluciones accesibles para cualquier tamaño de empresa."
-    },
-    {
-        keywords: ["whatsapp", "telegram", "messenger", "integración"],
-        response: "¡Sí! Juan Pablo puede crear chatbots integrados con:\n\n💬 WhatsApp Business API\n📱 Telegram Bot\n🌐 Chat en tu sitio web\n📧 Email automatizado\n\nTodos con IA conversacional para atención 24/7. ¿Te interesa alguna plataforma específica?"
-    },
-    {
-        keywords: ["gracias", "genial", "excelente", "perfecto", "ok"],
-        response: "¡De nada! 😊 Si tienes más preguntas, aquí estaré. Y si quieres hablar directamente con Juan Pablo:\n\n📧 jp.ramirez.yanez@gmail.com\n\n¡Éxito con tu proyecto! 🚀"
-    },
-    {
-        keywords: ["video", "videos", "afiche", "flyer", "promoción", "promocion", "multimedia", "contenido", "diseño", "canva"],
-        response: "¡Juan Pablo también crea **contenido multimedia** profesional! 🎬\n\n• 📹 Videos promocionales y corporativos\n• 🎨 Afiches y flyers digitales\n• 📊 Presentaciones ejecutivas impactantes\n• 📱 Contenido para redes sociales\n• ✨ Animaciones y motion graphics\n\n**Herramientas:** Canva Pro, CapCut, DaVinci Resolve, AI Image Gen\n\n¿Necesitas material visual para tu proyecto?"
-    }
-];
+// System prompt con toda la información del experto
+const SYSTEM_PROMPT = `Eres ByteBot, el asistente virtual de Juan Pablo Ramírez Yáñez. Tu rol es ayudar a potenciales clientes a conocer sus servicios y capacidades.
 
-// Respuesta por defecto
-const DEFAULT_RESPONSE = "Interesante pregunta. Juan Pablo puede ayudarte con:\n\n• Automatización de procesos\n• Desarrollo web\n• Chatbots personalizados\n• Integración de IA\n\n¿Quieres que te cuente más sobre alguno? O puedes contactarlo en: **jp.ramirez.yanez@gmail.com** 📧";
+INFORMACIÓN DEL EXPERTO:
+- Nombre: Juan Pablo Ramírez Yáñez
+- Rol: Product Manager & Desarrollador de Soluciones
+- Experiencia: 14+ años en gestión educativa y tecnología
+- Ubicación: Chile, Región de la Araucanía
+- Email: jp.ramirez.yanez@gmail.com
+- GitHub: github.com/Juanpi2024
+- Trabaja con IA desde: 2021 (antes del boom de ChatGPT)
+
+FORMACIÓN:
+- Técnico en Administración de Empresas
+- Técnico en Contabilidad General
+- Certificaciones continuas en tecnologías cloud e IA
+
+SERVICIOS QUE OFRECE (6):
+1. Automatización de Procesos - Google Apps Script, Zapier, Make, Power Automate
+2. Desarrollo de Aplicaciones Web - JavaScript, TypeScript, React, Next.js
+3. Chatbots Personalizados - Para cualquier propósito: atención al cliente 24/7, ventas, tutores educativos, soporte técnico. Integración con WhatsApp, Web, Telegram
+4. Integración de Inteligencia Artificial - GPT-4, Gemini, Claude, Whisper, RAG, Vision AI
+5. Creación de Contenido Multimedia - Videos promocionales, afiches, flyers, presentaciones, contenido para redes sociales, animaciones, motion graphics. Herramientas: Canva Pro, CapCut, DaVinci Resolve, AI Image Gen
+6. Consultoría Digital y Capacitación - Diagnóstico de madurez digital, roadmap de transformación, mentoring técnico
+
+DIFERENCIADOR CLAVE:
+- Soluciones de "Costo Cero" en infraestructura: usa herramientas gratuitas (Google Workspace, Firebase, etc.) para que el cliente no pague licencias ni hosting. Solo invierte en el tiempo de desarrollo.
+
+PROYECTOS DESTACADOS:
+- Calendario Institucional Anual con sincronización cloud
+- Sistema de Estadísticas y Actas automatizado
+- Gestión de Riesgos Institucionales (OAT)
+- Control de Ingresos y Egresos con IA
+- Análisis FODA Dinámico con base de datos
+- Conversor PDF a Web Normativo
+- Seguimiento Académico en Tiempo Real
+- Gestión Inteligente de Oficios con IA
+
+TIEMPOS ESTIMADOS:
+- Automatizaciones simples: 1-2 semanas
+- Aplicaciones web: 4-8 semanas
+- Chatbots: 2-4 semanas
+- Dashboards: 2-3 semanas
+- Contenido multimedia: 1-2 semanas
+
+INDUSTRIAS CON EXPERIENCIA:
+- Educación (especialidad principal, 14+ años)
+- Corporativo
+- Salud
+- Retail
+- Legal
+- Gobierno
+
+INSTRUCCIONES DE COMPORTAMIENTO:
+1. Responde siempre en español de Chile, de forma amigable y profesional
+2. Usa emojis moderadamente para hacer las respuestas más atractivas
+3. Sé conciso pero informativo (máximo 3-4 párrafos)
+4. Si te preguntan algo fuera del contexto de Juan Pablo, redirige amablemente hacia sus servicios
+5. Siempre ofrece el email de contacto cuando sea apropiado: jp.ramirez.yanez@gmail.com
+6. Destaca el diferenciador de "Costo Cero" cuando sea relevante
+7. Recuerda que TÚ (ByteBot) eres un ejemplo vivo de la capacidad de Juan Pablo para crear chatbots con IA
+8. No inventes información que no esté en este contexto
+`;
+
+// Historial de conversación para contexto
+let conversationHistory = [];
 
 // Crear estructura del chatbot
 function createChatbotHTML() {
@@ -121,7 +93,7 @@ function createChatbotHTML() {
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="bytechat-header-text">
-                            <h4>ByteBot</h4>
+                            <h4>ByteBot <span class="ai-badge">Gemini AI</span></h4>
                             <span class="bytechat-status">🟢 Online</span>
                         </div>
                     </div>
@@ -142,7 +114,7 @@ function createChatbotHTML() {
                 </div>
                 
                 <div class="bytechat-footer">
-                    <span>Desarrollado por Juan Pablo Ramírez</span>
+                    <span>Potenciado por Gemini AI • Juan Pablo Ramírez</span>
                 </div>
             </div>
         </div>
@@ -160,6 +132,7 @@ function addMessage(text, isUser = false) {
     // Convertir markdown básico a HTML
     let formattedText = text
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/\n/g, '<br>');
 
     messageDiv.innerHTML = `
@@ -169,21 +142,6 @@ function addMessage(text, isUser = false) {
 
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-// Buscar respuesta en la base de conocimiento
-function findResponse(userMessage) {
-    const lowerMessage = userMessage.toLowerCase();
-
-    for (const item of KNOWLEDGE_BASE) {
-        for (const keyword of item.keywords) {
-            if (lowerMessage.includes(keyword)) {
-                return item.response;
-            }
-        }
-    }
-
-    return DEFAULT_RESPONSE;
 }
 
 // Mostrar indicador de escritura
@@ -211,20 +169,95 @@ function hideTypingIndicator() {
     }
 }
 
+// Llamar a Gemini API
+async function callGeminiAPI(userMessage) {
+    // Agregar mensaje del usuario al historial
+    conversationHistory.push({
+        role: "user",
+        parts: [{ text: userMessage }]
+    });
+
+    // Construir el request con historial
+    const requestBody = {
+        contents: [
+            {
+                role: "user",
+                parts: [{ text: SYSTEM_PROMPT }]
+            },
+            {
+                role: "model",
+                parts: [{ text: "Entendido. Soy ByteBot, el asistente virtual de Juan Pablo Ramírez. Estoy listo para ayudar a los visitantes con información sobre sus servicios profesionales. ¿En qué puedo ayudarte?" }]
+            },
+            ...conversationHistory
+        ],
+        generationConfig: {
+            temperature: 0.7,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 500,
+        },
+        safetySettings: [
+            { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" }
+        ]
+    };
+
+    try {
+        const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+            const botResponse = data.candidates[0].content.parts[0].text;
+
+            // Agregar respuesta al historial
+            conversationHistory.push({
+                role: "model",
+                parts: [{ text: botResponse }]
+            });
+
+            // Limitar historial a últimos 10 mensajes para no exceder límites
+            if (conversationHistory.length > 10) {
+                conversationHistory = conversationHistory.slice(-10);
+            }
+
+            return botResponse;
+        } else {
+            throw new Error('Respuesta inválida de la API');
+        }
+    } catch (error) {
+        console.error('Error calling Gemini API:', error);
+        return "Lo siento, tuve un problema técnico. 😅 Pero puedes contactar directamente a Juan Pablo en: **jp.ramirez.yanez@gmail.com**";
+    }
+}
+
 // Procesar mensaje del usuario
-function processUserMessage(message) {
+async function processUserMessage(message) {
     if (!message.trim()) return;
 
     addMessage(message, true);
-
-    // Simular tiempo de respuesta
     showTypingIndicator();
 
-    setTimeout(() => {
+    try {
+        const response = await callGeminiAPI(message);
         hideTypingIndicator();
-        const response = findResponse(message);
         addMessage(response, false);
-    }, 800 + Math.random() * 700);
+    } catch (error) {
+        hideTypingIndicator();
+        addMessage("Hubo un error al procesar tu mensaje. Por favor, intenta de nuevo o contacta a jp.ramirez.yanez@gmail.com", false);
+    }
 }
 
 // Inicializar chatbot
