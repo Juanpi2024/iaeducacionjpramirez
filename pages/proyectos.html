@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Bytecode - Portfolio de Soluciones</title>
+    <meta name="description"
+        content="Portfolio de proyectos de software: automatización, dashboards, aplicaciones web y soluciones con IA desarrolladas para optimizar procesos empresariales.">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">BYTECODE</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="innovacion-ia.html">IA</a></li>
+                <li><a href="sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="btn-primary">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Inicio</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Proyectos</span>
+            </nav>
+            <h1 class="reveal">Portfolio de <span class="highlight">Proyectos</span></h1>
+            <p class="hero-subtitle reveal">Soluciones reales que resolvieron desafíos concretos. Cada proyecto
+                representa un problema transformado en eficiencia.</p>
+        </div>
+        <div class="hero-visual">
+            <div class="glow-orb"></div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass reveal">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Proyectos Completados</div>
+                </div>
+                <div class="stat-card glass reveal">
+                    <div class="stat-number">14+</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-card glass reveal">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clientes Satisfechos</div>
+                </div>
+                <div class="stat-card glass reveal">
+                    <div class="stat-number">$0</div>
+                    <div class="stat-label">Costo Infraestructura</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter -->
+    <section class="section projects-filter">
+        <div class="container">
+            <div class="filter-tabs reveal">
+                <button class="filter-tab active" data-filter="all">Todos</button>
+                <button class="filter-tab" data-filter="automation">Automatización</button>
+                <button class="filter-tab" data-filter="webapp">Aplicaciones Web</button>
+                <button class="filter-tab" data-filter="ai">Inteligencia Artificial</button>
+                <button class="filter-tab" data-filter="dashboard">Dashboards</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section projects-section">
+        <div class="container">
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <article class="project-card glass reveal" data-category="webapp dashboard">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Juanpi2024/calendario-anual-ceia-2026" target="_blank"
+                                rel="noopener" class="project-link" aria-label="Ver Calendario Institucional en GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-calendar-alt project-icon"></i>
+                        <span class="project-badge">Open Source</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Google Sheets</span>
+                        </div>
+                        <h3>Calendario Institucional Anual</h3>
+                        <p>Sistema de planificación colaborativa con sincronización bidireccional a la nube. Control
+                            total de actividades académicas y administrativas.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 2 semanas</span>
+                            <span><i class="fas fa-users"></i> Sector Educación</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card glass reveal" data-category="automation dashboard">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Juanpi2024/estadistica-ceia-2025" target="_blank" rel="noopener"
+                                class="project-link" aria-label="Ver Sistema de Estadísticas en GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-chart-bar project-icon"></i>
+                        <span class="project-badge">Data Driven</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>TypeScript</span>
+                            <span>Analytics</span>
+                        </div>
+                        <h3>Sistema de Estadísticas y Actas</h3>
+                        <p>Gestión integral de datos institucionales con generación automática de actas oficiales y
+                            reportes estadísticos en tiempo real.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 3 semanas</span>
+                            <span><i class="fas fa-users"></i> Sector Educación</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card glass reveal" data-category="webapp automation">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Juanpi2024/app-RIESGOS" target="_blank" rel="noopener"
+                                class="project-link" aria-label="Ver App de Riesgos en GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-shield-alt project-icon"></i>
+                        <span class="project-badge">Compliance</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>TypeScript</span>
+                            <span>Risk Management</span>
+                        </div>
+                        <h3>Gestión de Riesgos Institucionales</h3>
+                        <p>Plataforma para supervisión de OAT y matrices de riesgo. Cumplimiento normativo con alertas
+                            proactivas y reportes automáticos.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 4 semanas</span>
+                            <span><i class="fas fa-users"></i> Multi-sector</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card glass reveal" data-category="webapp dashboard">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Juanpi2024/yeca-app-agendas-" target="_blank" rel="noopener"
+                                class="project-link" aria-label="Ver App de Agendas en GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-calculator project-icon"></i>
+                        <span class="project-badge">Financial</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Finance</span>
+                        </div>
+                        <h3>Control de Ingresos y Egresos</h3>
+                        <p>Sistema de gestión financiera con registro detallado de movimientos, categorización
+                            inteligente y proyecciones con IA.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 2 semanas</span>
+                            <span><i class="fas fa-users"></i> Emprendimientos</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card glass reveal" data-category="automation ai">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Juanpi2024/Foda-2025-CEIA-con-base-de-datos" target="_blank"
+                                rel="noopener" class="project-link" aria-label="Ver Análisis FODA en GitHub">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-th-large project-icon"></i>
+                        <span class="project-badge">Strategic</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Strategy</span>
+                        </div>
+                        <h3>Análisis FODA Dinámico</h3>
+                        <p>Herramienta de evaluación estratégica con persistencia en base de datos. Seguimiento
+                            histórico y comparativas multi-período.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 2 semanas</span>
+                            <span><i class="fas fa-users"></i> Multi-sector</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 6 - PDF to Web -->
+                <article class="project-card glass reveal large" data-category="webapp automation">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="Ver Conversor PDF a Web">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-file-pdf project-icon"></i>
+                        <span class="project-badge featured">Destacado</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Web App</span>
+                            <span>AI Assisted</span>
+                        </div>
+                        <h3>Conversor PDF a Web Normativo</h3>
+                        <p>Transformación de documentos normativos complejos (decretos, reglamentos, manuales) en
+                            plataformas web interactivas con búsqueda inteligente, navegación por secciones y
+                            referencias cruzadas.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 6 semanas</span>
+                            <span><i class="fas fa-users"></i> Gobierno / Educación</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 7 - Academic Tracking -->
+                <article class="project-card glass reveal" data-category="dashboard automation">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="Ver Seguimiento Académico">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-user-graduate project-icon"></i>
+                        <span class="project-badge">Real-time</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>Apps Script</span>
+                            <span>Dashboard</span>
+                        </div>
+                        <h3>Seguimiento Académico en Tiempo Real</h3>
+                        <p>Panel de control para monitorear asistencia, atrasos y rendimiento estudiantil. Alertas
+                            automáticas a tutores y reportes semanales.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 4 semanas</span>
+                            <span><i class="fas fa-users"></i> Sector Educación</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 8 - AI Document Management -->
+                <article class="project-card glass reveal" data-category="ai automation">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="Ver Gestión Inteligente de Oficios">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <i class="fas fa-robot project-icon"></i>
+                        <span class="project-badge">AI Powered</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span>GPT-4</span>
+                            <span>Automation</span>
+                        </div>
+                        <h3>Gestión Inteligente de Oficios</h3>
+                        <p>Sistema de administración documental con clasificación automática mediante IA, seguimiento de
+                            estados y generación de respuestas asistidas.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-clock"></i> 5 semanas</span>
+                            <span><i class="fas fa-users"></i> Corporativo</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="section tech-section glass-section">
+        <div class="container">
+            <h2 class="section-title reveal">Stack Tecnológico</h2>
+            <p class="section-subtitle reveal">Herramientas que domino para crear soluciones robustas y escalables.</p>
+
+            <div class="tech-grid">
+                <div class="tech-category reveal">
+                    <h4><i class="fas fa-code"></i> Frontend</h4>
+                    <div class="tech-items">
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>HTML5/CSS3</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4><i class="fas fa-server"></i> Backend & Cloud</h4>
+                    <div class="tech-items">
+                        <span>Google Apps Script</span>
+                        <span>Node.js</span>
+                        <span>Firebase</span>
+                        <span>Google Cloud</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4><i class="fas fa-brain"></i> Inteligencia Artificial</h4>
+                    <div class="tech-items">
+                        <span>GPT-4 / ChatGPT</span>
+                        <span>Gemini</span>
+                        <span>Claude</span>
+                        <span>Whisper</span>
+                        <span>NotebookLM</span>
+                    </div>
+                </div>
+                <div class="tech-category reveal">
+                    <h4><i class="fas fa-tools"></i> Herramientas</h4>
+                    <div class="tech-items">
+                        <span>Git / GitHub</span>
+                        <span>Figma</span>
+                        <span>Google Workspace</span>
+                        <span>Looker Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box glass reveal">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Cuéntame tu desafío y diseñemos juntos la solución perfecta para tu organización.</p>
+                <div class="cta-buttons">
+                    <a href="contacto.html" class="cta-btn">Iniciar Conversación</a>
+                    <a href="servicios.html" class="secondary-btn"><i class="fas fa-concierge-bell"></i> Ver
+                        Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand reveal">
+                <div class="footer-logo">BYTECODE</div>
+                <p>Soluciones tecnológicas que transforman organizaciones. Especialización en educación, aplicable a
+                    cualquier industria.</p>
+            </div>
+            <div class="footer-links reveal">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="sobre-mi.html">Sobre Mí</a></li>
+                </ul>
+            </div>
+            <div class="footer-social reveal">
+                <h4>Conecta</h4>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Juanpi2024" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="mailto:jp.ramirez.yanez@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bytecode. Creado por Juan Pablo Ramírez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="pages.js"></script>
+</body>
+
+</html>
